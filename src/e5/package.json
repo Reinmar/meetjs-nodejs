@@ -1,0 +1,9 @@
+{
+	"name": "gtug",
+	"version": "0.1.0",
+	"dependencies": {
+		"restify": ">=0.5.6",
+		"deferred": ">=0.3.0",
+		"supervisor": ">= 0.1.2"
+	}
+}

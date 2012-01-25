@@ -1,0 +1,172 @@
+* { margin: 0; padding: 0; }
+details { display: none; }
+body {
+	width: 800px; height: 600px;
+	margin-left: -400px; margin-top: -300px;
+	position: absolute; top: 50%; left: 50%;
+	overflow: hidden;
+}
+section {
+	position: absolute;
+	pointer-events: none;
+	width: 100%; height: 100%;
+}
+section[aria-selected] { pointer-events: auto; }
+html { overflow: hidden; }
+body { display: none; }
+body.loaded { display: block; }
+.incremental {visibility: hidden; }
+.incremental[active] {visibility: visible; }
+
+
+
+html {
+	background-color: black;
+}
+body {
+	background-color: white;
+	text-shadow: 0 0 15px #FFF;
+}
+section {
+	font-family: 'Gill Sans', Ubuntu, arial, serif;
+	font-size: 35px;
+}
+h1, h2 {
+	display: table-cell;
+	height: 600px;
+	width: 800px;
+	vertical-align: middle;
+	text-align: center;
+	font-size: 80px;
+}
+h3, ul, img, pre, blockquote {
+	margin: 25px 50px;
+	display: block;
+}
+img {
+	margin: 0 auto;
+}
+ul {
+	padding-left: 40px;
+}
+li {
+	margin: 5px 0;
+}
+big {
+	font-weight: bold;
+}
+pre, code {
+	font-family: 'Monaco', monospace;
+}
+pre {
+	font-size: 20px;
+}
+blockquote {
+	margin: 50px 50px 25px 80px;
+	position: relative;
+	opacity: 0.75;
+}
+blockquote::before {
+	content: '❞';
+	display: block;
+	font-size: 250px;
+	position: absolute;
+	left: -40px;
+	top: -60px;
+	z-index: -1;
+	opacity: 0.1;
+}
+blockquote footer {
+	margin-top: 50px;
+}
+a {
+	color: #555;
+}
+
+img.full, video {
+	width: 800px;
+	height: 600px;
+	position: absolute;
+	top: 0;
+	background-color: black;
+	z-index: -1;
+	margin: 0;
+}
+
+footer {
+	font-size: 25px;
+	text-align: right;
+	opacity: 0.75;
+}
+section > footer {
+	position: absolute;
+	bottom: 10px;
+	right: 20px;
+}
+
+/* Transition effect */
+/* Feel free to change the transition effect for original
+ animations. See here:
+ https://developer.mozilla.org/en/CSS/CSS_transitions
+ How to use CSS3 Transitions: */
+section {
+	-moz-transition: left 200ms linear 0s;
+	-webkit-transition: left 200ms linear 0s;
+	-ms-transition: left 200ms linear 0s;
+	transition: left 200ms linear 0s;
+}
+
+/* Before */
+section { left: -150%; }
+/* Now */
+section[aria-selected] { left: 0; }
+/* After */
+section[aria-selected] ~ section { left: +150%; }
+
+/* Incremental elements */
+
+/* By default, visible */
+.incremental > * { opacity: 1; }
+
+/* The current item */
+.incremental > *[aria-selected] {
+	color: #7B3;
+	opacity: 1;
+}
+
+/* The items to-be-selected */
+.incremental > *[aria-selected] ~ * {
+	opacity: 0.15;
+}
+
+.none {
+	text-decoration: line-through;
+}
+.on_dark {
+	color: #FFF;
+	text-shadow: 0 0 15px #000;
+}
+
+h1.long {
+	font-size: 60px;
+}
+h1.huge {
+	font-size: 150px;
+}
+h1.yesyes {
+	text-align: left;
+	padding: 25px 0 0 50px;
+	vertical-align: top;
+	color: #7B3;
+}
+.logo {
+	position: relative;
+	top: -20px;
+}
+.headshot {
+	font-size: 1.2em;
+	color: #D22;
+}
+h1 > strong {
+	color: #7B3;
+}
